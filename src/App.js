@@ -1,15 +1,19 @@
-import logo from './logo.svg';
-import './App.scss';
-import Header from './components/header';
-import Cards from './components/cards';
-import Fields from './components/fields';
+import "./App.scss";
+import Header from "./components/header";
+import Cards from "./components/cards";
+import Fields from "./components/fields";
+import Pagination from "./components/pagination";
+import ProductContext from "./contexts/countries.js";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Fields />
-      <Cards />
+      <ProductContext.Provider>
+        <Header />
+        <Fields />
+        <Cards />
+        <Pagination />
+      </ProductContext.Provider>
     </div>
   );
 }

@@ -4,8 +4,11 @@ const Cards = () => {
   return (
     <main className="cards">
       <ul className="cards__list">
-        <Card />
-        {/* next line for responsive when there is 1 or 2 card in the page! */}
+        {[1, 2].map((card, i) => (
+          <Card id={i} />
+        ))}
+
+        {/* next 4 lines for responsive when there is 1 or 2 card in the page! */}
         <li></li>
         <li></li>
         <li></li>

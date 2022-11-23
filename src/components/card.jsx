@@ -1,6 +1,6 @@
-const Card = () => {
+const Card = (props) => {
   return (
-    <li className="cards__item">
+    <li className="cards__item" key={props.id}>
       <a href="/infoPage(temp).html" className="card">
         <div className="card__flag-box">
           <img

@@ -2,7 +2,7 @@ const Search = () => {
   return (
     <form action="#" className="search">
       <input
-        autofocus
+        autoFocus
         type="text"
         className="search__input"
         placeholder="Search for a country..."
