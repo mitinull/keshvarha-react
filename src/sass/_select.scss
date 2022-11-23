@@ -1,0 +1,24 @@
+.select {
+  // margin: 1.7rem var(--padding-vertical-1);
+  font-size: 1.5rem;
+  font-weight: 300;
+  flex: 0 1 20rem;
+
+  &__selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-element);
+    padding: 1.5rem 3rem;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--shadow-1);
+    // max-width: 20rem;
+    cursor: pointer;
+  }
+
+  &__icon-down {
+    fill: currentColor;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
