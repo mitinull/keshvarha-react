@@ -1,0 +1,59 @@
+/*
+- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 97%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+*/
+
+////////////////////////////
+// Light mode
+
+:root {
+  --color-element: hsl(0, 0%, 100%);
+  --color-background: hsl(0, 0%, 96%);
+  --color-input: hsl(0, 0%, 52%);
+  --color-text: hsl(200, 15%, 8%);
+
+  --shadow-1: 0 2px 3px #0000000e;
+  --shadow-2: 0 2px 6px #0000002f;
+
+  --padding-vertical-1: clamp(16px, 6vw, 80px);
+  --padding-vertical-2: calc(1.2 * var(--padding-vertical-1));
+
+  --size-icon-search: 1.7rem;
+
+  --border-radius-1: 5px;
+
+  --grid-gap-1: 2.5rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px (if client defult == 16px)
+  box-sizing: border-box;
+
+  @include response-tablet-up {
+    font-size: 75%; // 1rem == 12px
+  }
+}
+
+body {
+  color: var(--color-text); // Default text color
+  font-family: "Nunito Sans", sans-serif; // Default font family
+  font-weight: 300;
+  background-color: var(--color-background);
+}
+
+::selection {
+  background-color: var(--color-text);
+  color: var(--color-element);
+}
