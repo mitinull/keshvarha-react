@@ -1,0 +1,13 @@
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-element);
+  box-shadow: var(--shadow-1);
+  padding: 0 var(--padding-vertical-1);
+
+  &__heading {
+    font-size: clamp(16px, 3.5vw, 24px); // 1.6 ~ 2.4 rem
+    font-weight: 800;
+  }
+}
