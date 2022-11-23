@@ -1,0 +1,42 @@
+.fields {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0 var(--padding-vertical-1);
+  padding-top: clamp(25px, 4%, 40px);
+}
+
+.cards {
+  padding: 0 var(--padding-vertical-1);
+  padding-top: 2.5rem;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 0 var(--grid-gap-1);
+    list-style: none;
+  }
+}
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.35rem;
+
+  &__btn {
+    cursor: pointer;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--border-radius-1);
+    background-color: transparent;
+    transition: all 0.1s;
+    font-weight: 600;
+
+    &:hover {
+      scale: 1.02;
+    }
+  }
+}
