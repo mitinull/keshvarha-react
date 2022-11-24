@@ -1,0 +1,8 @@
+.spinner {
+  margin: 5rem auto;
+  display: flex;
+  height: 9rem;
+  width: 9rem;
+  fill: currentColor;
+  animation: spinnerRotation 0.75s ease infinite, spinnerIn .4s;
+}

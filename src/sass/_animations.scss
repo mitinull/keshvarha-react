@@ -1,0 +1,33 @@
+@keyframes spinnerRotation {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes spinnerIn {
+  0% {
+    opacity: 0;
+    scale: 0.65;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes cardIn {
+  0% {
+    // translate: -10px 0;
+    scale: 0.8;
+    rotate: -5deg;
+    opacity: 0;
+  }
+
+  100% {
+    translate: 0 0;
+    opacity: 1;
+  }
+}

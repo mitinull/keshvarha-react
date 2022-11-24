@@ -1,0 +1,125 @@
+.back-btn {
+  background-color: var(--color-element);
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.6rem 3rem;
+  box-shadow: var(--shadow-1);
+  margin: 4rem var(--padding-vertical-2);
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    box-shadow: var(--shadow-2);
+    translate: 0 -2px;
+  }
+
+  &::first-letter {
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+}
+
+.info {
+  padding: 2rem var(--padding-vertical-2);
+
+  @include response-desktop-up {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem 7%;
+    &__item:nth-child(6) {
+      display: none;
+    }
+  }
+
+  &__flag-box {
+    flex: 1 1 300px;
+  }
+
+  &__flag {
+    width: MIN(100%, 555px);
+    display: block;
+    @include response-desktop-up {
+      width: 100%;
+    }
+  }
+
+  &__text-box {
+    @include response-desktop-up {
+      flex: 1 1 300px;
+    }
+  }
+
+  &__name {
+    font-size: 2.3rem;
+    margin: 3.5rem 0 1.5rem 0;
+    padding: 0 1.5rem;
+    @include response-desktop-up {
+      padding: 0;
+      margin-top: 0;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    font-size: 1.45rem;
+    font-weight: 300;
+    line-height: 2.2;
+    padding: 0 1.5rem;
+    @include response-desktop-up {
+      columns: 2;
+      padding: 0;
+      &::after {
+        content: ".";
+        color: transparent;
+      }
+    }
+  }
+
+  &__key {
+    font-weight: 600;
+  }
+}
+
+.borders {
+  margin-top: 4.5rem;
+  margin-bottom: 5rem;
+  max-width: 500px;
+
+  @include response-desktop-up {
+    margin-top: 0;
+    max-width: 55%;
+  }
+
+  &__heading {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  &__list {
+    margin-top: 1rem;
+    list-style: none;
+    font-size: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &::after {
+      content: "";
+      flex: 1000000000;
+    }
+  }
+
+  &__item {
+    background-color: var(--color-element);
+    padding: 0.9rem 2rem;
+    box-shadow: var(--shadow-1);
+    border-radius: var(--border-radius-1);
+    // flex: 1 1 90px;
+    flex: 1;
+    text-align: center;
+  }
+}

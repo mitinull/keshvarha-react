@@ -1,3 +1,5 @@
+// import icon from '../images/sprite.svg'
+import {BiSearch} from 'react-icons/bi'
 const Search = () => {
   return (
     <form action="#" className="search">
@@ -8,7 +10,7 @@ const Search = () => {
         placeholder="Search for a country..."
       />
       <button className="search__button">
-        <img className="search__icon" src="./sprite.svg#icon-search"/>
+        <BiSearch className='search__icon'/>
       </button>
     </form>
   );

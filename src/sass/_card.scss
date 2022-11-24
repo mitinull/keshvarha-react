@@ -10,6 +10,7 @@
   color: inherit;
   animation: cardIn 0.7s;
   margin-top: var(--grid-gap-1);
+  cursor: pointer;
   
   @include response-tablet-up {
     // max-width: 30rem;
