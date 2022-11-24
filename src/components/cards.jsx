@@ -1,10 +1,13 @@
+import { useContext } from "react";
+import CountriesContext from "../contexts/countries";
 import Card from "./card";
 
 const Cards = () => {
+  const {countries} = useContext(CountriesContext)
   return (
     <main className="cards">
       <ul className="cards__list">
-        {[1, 2].map((card, i) => (
+        {countries.map((card, i) => (
           <Card id={i} />
         ))}
 
