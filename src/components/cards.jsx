@@ -1,19 +1,18 @@
 import { useContext } from "react";
-import { BiGlobe } from "react-icons/bi";
 import { BsGlobe2 } from "react-icons/bs";
+import { CARD_PER_PAGE } from "../config";
 import CountriesContext from "../contexts/countries";
 import Card from "./card";
 
 const Cards = () => {
-  const { countries, isLoading } = useContext(CountriesContext);
+  const { countries, isLoading, page } = useContext(CountriesContext);
   return (
     <main className="cards">
       {isLoading ? (
-        // <BiGlobe className="spinner"/>
         <BsGlobe2 className="spinner"/>
       ) : (
         <ul className="cards__list">
-          {countries.map((card, i) => (
+          {countries.slice((page - 1) * CARD_PER_PAGE, page * CARD_PER_PAGE).map((card, i) => (
             <Card card={card} key={i} />
           ))}
 

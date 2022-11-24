@@ -9,6 +9,8 @@
   margin-bottom: 2rem;
   border-radius: var(--border-radius-1);
   cursor: pointer;
+  text-decoration: none;
+  color: var(--color-text);
   transition: all 0.2s;
 
   &:hover {
