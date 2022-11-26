@@ -7,7 +7,8 @@ import CountriesContext from "../contexts/countries";
 const Select = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { region, setRegion } = useContext(CountriesContext);
+  const { allCountries, setCountries, region, setRegion, setPage } =
+    useContext(CountriesContext);
 
   // useEffect(() => {
   //   console.log(queryString.parse(props));
@@ -21,7 +22,7 @@ const Select = () => {
           setIsOpen(!isOpen);
         }}
       >
-        <span>{region}</span>
+        <span>{region==='All'?'Select by Region':region}</span>
         <BiChevronDown className="select__icon-down" />
       </div>
       {isOpen && (
@@ -33,6 +34,12 @@ const Select = () => {
               onClick={() => {
                 setRegion(cont);
                 setIsOpen(false);
+                setPage(1);
+                setCountries(
+                  cont === "All"
+                    ? allCountries
+                    : allCountries.filter((country) => country.region === cont)
+                );
               }}
             >
               {cont}

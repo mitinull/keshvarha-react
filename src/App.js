@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import BackBtn from "./components/backBtn";
 function App() {
+  const [allCountries, setAllCountries] = useState([]);
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -18,7 +19,8 @@ function App() {
   const getData = async () => {
     try {
       const { data } = await axios.get("https://restcountries.com/v3.1/all");
-      setCountries(data.slice(0, 32));
+      setAllCountries(data.slice(0, 64));
+      setCountries(data.slice(0, 64));
       setIsLoading(false);
     } catch (err) {
       console.err(err);
@@ -31,14 +33,16 @@ function App() {
 
   return (
     <div className="App">
-      <ProductContext.Provider value={{ countries, isLoading, page, setPage, region, setRegion }}>
+      <ProductContext.Provider
+        value={{ allCountries, countries, setCountries, isLoading, page, setPage, region, setRegion }}
+      >
         <Router>
           <Switch>
             <Route exact path="/">
               <Header />
               <Fields />
               <Cards />
-              <Pagination />8
+              <Pagination />
             </Route>
             <Route path="/:id" children={<Info />}>
               <Header />
