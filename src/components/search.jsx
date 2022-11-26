@@ -9,12 +9,12 @@ const Search = () => {
   const changeInputHandler = (e) => {
     setSearchValue(e.target.value);
     setPage(1);
+    const serachReg = new RegExp(`${e.target.value}`, "i");
     const filtered = e.target.value
-      ? allCountries.filter((country) => country.name.common == e.target.value)
+      ? allCountries.filter((country) => country.name.common.match(serachReg))
       : allCountries;
 
     setCountries(filtered);
-    console.log(e.target.value);
   };
   return (
     <form action="#" className="search">
