@@ -8,12 +8,26 @@ const Pagination = () => {
   return (
     <section className="pagination">
       {page > 1 && (
-        <div className="pagination__btn" onClick={() => setPage(page - 1)}>
+        <div
+          className="pagination__btn"
+          onClick={() => {
+            setPage(page - 1);
+            window.scroll(0, 0);
+          }}
+        >
           &larr; page {page - 1}
         </div>
       )}
       {page < countries.length / CARD_PER_PAGE && (
-        <div className="pagination__btn" onClick={() => setPage(page + 1)}>page {page + 1} &rarr;</div>
+        <div
+          className="pagination__btn"
+          onClick={() => {
+            setPage(page + 1);
+            window.scroll(0, 0);
+          }}
+        >
+          page {page + 1} &rarr;
+        </div>
       )}
     </section>
   );

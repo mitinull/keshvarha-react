@@ -26,7 +26,7 @@ const Info = () => {
       {isLoading ? (
         <h2>loading...</h2>
       ) : (
-        <div>
+        <>
           <div className="info__flag-box">
             <img
               className="info__flag"
@@ -87,7 +87,7 @@ const Info = () => {
               <li className="borders__item">germany</li>
             </ul>
           </div>
-        </div>
+        </>
       )}
     </main>
   );

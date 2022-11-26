@@ -19,7 +19,6 @@ function App() {
   const [region, setRegion] = useState("All");
   const [searchValue, setSearchValue] = useState("");
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  console.log(defaultDark);
   const [theme, setTheme] = useLocalStorage(defaultDark ? "dark" : "light");
 
   const getData = async () => {

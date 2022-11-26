@@ -11,12 +11,14 @@ const Cards = () => {
     setCountries,
     isLoading,
     page,
+    setPage,
     region,
     searchValue,
   } = useContext(CountriesContext);
 
   useEffect(() => {
     filterCountries();
+    setPage(1);
   }, [region, searchValue]);
 
   function filterCountries() {
