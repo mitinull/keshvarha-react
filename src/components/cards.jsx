@@ -5,14 +5,18 @@ import CountriesContext from "../contexts/countries";
 import Card from "./card";
 
 const Cards = () => {
-  const { countries, isLoading, page } = useContext(CountriesContext);
+  const { countries, isLoading, page, region } = useContext(CountriesContext);
   return (
     <main className="cards">
       {isLoading ? (
         <BsGlobe2 className="spinner"/>
       ) : (
         <ul className="cards__list">
-          {countries.slice((page - 1) * CARD_PER_PAGE, page * CARD_PER_PAGE).map((card, i) => (
+          {region === 'All'? 
+          countries.slice((page - 1) * CARD_PER_PAGE, page * CARD_PER_PAGE).map((card, i) => (
+            <Card card={card} key={i} />
+          )):
+          countries.filter(country => country.region === region).slice((page - 1) * CARD_PER_PAGE, page * CARD_PER_PAGE).map((card, i) => (
             <Card card={card} key={i} />
           ))}
 

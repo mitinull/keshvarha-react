@@ -13,11 +13,12 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [region, setRegion] = useState("All");
 
   const getData = async () => {
     try {
       const { data } = await axios.get("https://restcountries.com/v3.1/all");
-      setCountries(data.slice(0,32));
+      setCountries(data.slice(0, 32));
       setIsLoading(false);
     } catch (err) {
       console.err(err);
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <ProductContext.Provider value={{ countries, isLoading, page, setPage }}>
+      <ProductContext.Provider value={{ countries, isLoading, page, setPage, region, setRegion }}>
         <Router>
           <Switch>
             <Route exact path="/">
@@ -41,7 +42,7 @@ function App() {
             </Route>
             <Route path="/:id" children={<Info />}>
               <Header />
-              <BackBtn/>
+              <BackBtn />
               <Info />
             </Route>
           </Switch>

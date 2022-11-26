@@ -3,9 +3,9 @@ import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ card }) => {
-  useEffect(() => {
-    console.log(card);
-  }, []);
+  // useEffect(() => {
+  //   console.log(card);
+  // }, []);
   const image = card.flags.svg;
   return (
     <li className="cards__item">
