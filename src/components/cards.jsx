@@ -1,12 +1,41 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BsGlobe2 } from "react-icons/bs";
 import { CARD_PER_PAGE } from "../config";
 import CountriesContext from "../contexts/countries";
 import Card from "./card";
 
 const Cards = () => {
-  const { allCountries, countries, isLoading, page, region } =
-    useContext(CountriesContext);
+  const {
+    allCountries,
+    countries,
+    setCountries,
+    isLoading,
+    page,
+    region,
+    searchValue,
+  } = useContext(CountriesContext);
+
+  useEffect(() => {
+    filterCountries();
+  }, [region, searchValue]);
+
+  function filterCountries() {
+    const searchReg = new RegExp(`${searchValue}`, "i");
+
+    // filter searhc
+    let filtered = searchValue
+      ? allCountries.filter((country) => country.name.common.match(searchReg))
+      : allCountries;
+
+    // filter region
+    filtered =
+      region === "All"
+        ? filtered
+        : filtered.filter((country) => country.region === region);
+
+    setCountries(filtered);
+  }
+
   return (
     <main className="cards">
       {isLoading ? (

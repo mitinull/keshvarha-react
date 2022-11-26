@@ -1,14 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { CONTINENTS } from "../config";
-import queryString from "query-string";
 import CountriesContext from "../contexts/countries";
 
 const Select = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { allCountries, setCountries, region, setRegion, setPage } =
+  const { region, setRegion } =
     useContext(CountriesContext);
+
+  const changeRegionHandler = (cont) => {
+    setRegion(cont);
+    setIsOpen(false);
+  };
 
   // useEffect(() => {
   //   console.log(queryString.parse(props));
@@ -22,7 +26,7 @@ const Select = () => {
           setIsOpen(!isOpen);
         }}
       >
-        <span>{region==='All'?'Select by Region':region}</span>
+        <span>{region === "All" ? "Select by Region" : region}</span>
         <BiChevronDown className="select__icon-down" />
       </div>
       {isOpen && (
@@ -31,16 +35,7 @@ const Select = () => {
             <li
               key={i}
               className="select__option"
-              onClick={() => {
-                setRegion(cont);
-                setIsOpen(false);
-                setPage(1);
-                setCountries(
-                  cont === "All"
-                    ? allCountries
-                    : allCountries.filter((country) => country.region === cont)
-                );
-              }}
+              onClick={changeRegionHandler.bind(this, cont)}
             >
               {cont}
             </li>

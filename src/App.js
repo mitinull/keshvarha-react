@@ -9,18 +9,20 @@ import ProductContext from "./contexts/countries.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BackBtn from "./components/backBtn";
+
 function App() {
   const [allCountries, setAllCountries] = useState([]);
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [region, setRegion] = useState("All");
+  const [searchValue, setSearchValue] = useState("");
 
   const getData = async () => {
     try {
       const { data } = await axios.get("https://restcountries.com/v3.1/all");
-      setAllCountries(data.slice(0, 64));
-      setCountries(data.slice(0, 64));
+      setAllCountries(data);
+      setCountries(data);
       setIsLoading(false);
     } catch (err) {
       console.err(err);
@@ -34,7 +36,18 @@ function App() {
   return (
     <div className="App">
       <ProductContext.Provider
-        value={{ allCountries, countries, setCountries, isLoading, page, setPage, region, setRegion }}
+        value={{
+          allCountries,
+          countries,
+          setCountries,
+          isLoading,
+          page,
+          setPage,
+          region,
+          setRegion,
+          searchValue,
+          setSearchValue,
+        }}
       >
         <Router>
           <Switch>

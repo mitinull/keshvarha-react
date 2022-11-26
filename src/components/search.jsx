@@ -4,20 +4,15 @@ import { BiSearch } from "react-icons/bi";
 import CountriesContext from "../contexts/countries";
 
 const Search = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const { setCountries, allCountries, setPage } = useContext(CountriesContext);
+  const { setCountries, allCountries, setPage, searchValue, setSearchValue } = useContext(CountriesContext);
   const changeInputHandler = (e) => {
     setSearchValue(e.target.value);
-    setPage(1);
-    const serachReg = new RegExp(`${e.target.value}`, "i");
-    const filtered = e.target.value
-      ? allCountries.filter((country) => country.name.common.match(serachReg))
-      : allCountries;
-
-    setCountries(filtered);
+  };
+  const submitFormHandler = (e) => {
+    e.preventDefault();
   };
   return (
-    <form action="#" className="search">
+    <form action="#" className="search" onSubmit={submitFormHandler}>
       <input
         autoFocus
         type="text"
