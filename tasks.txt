@@ -1,3 +1,4 @@
 - fix responsive on desktop size
 - scroll top on page change
 - fix animation on cards change
+- night mode

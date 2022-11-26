@@ -10,7 +10,7 @@
 ////////////////////////////
 // Light mode
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
 :root {
   --color-element: hsl(0, 0%, 100%);
@@ -31,6 +31,14 @@
   --grid-gap-1: 2.5rem;
 }
 
+[data-theme="dark"] {
+  --color-element: hsl(209, 23%, 22%);
+  --color-background: hsl(207, 26%, 17%);
+  --color-input: white;
+  --color-text: hsl(0, 0%, 96%);
+  
+}
+
 *,
 *::before,
 *::after {
@@ -48,11 +56,12 @@ html {
   }
 }
 
-body {
+.App {
   color: var(--color-text); // Default text color
   font-family: "Nunito Sans", sans-serif; // Default font family
   font-weight: 300;
   background-color: var(--color-background);
+  min-height: 100vh;
 }
 
 ::selection {

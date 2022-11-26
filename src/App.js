@@ -9,6 +9,7 @@ import ProductContext from "./contexts/countries.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BackBtn from "./components/backBtn";
+import useLocalStorage from "use-local-storage";
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
@@ -17,6 +18,9 @@ function App() {
   const [page, setPage] = useState(1);
   const [region, setRegion] = useState("All");
   const [searchValue, setSearchValue] = useState("");
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  console.log(defaultDark);
+  const [theme, setTheme] = useLocalStorage(defaultDark ? "dark" : "light");
 
   const getData = async () => {
     try {
@@ -34,7 +38,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
       <ProductContext.Provider
         value={{
           allCountries,
@@ -47,6 +51,8 @@ function App() {
           setRegion,
           searchValue,
           setSearchValue,
+          theme,
+          setTheme,
         }}
       >
         <Router>

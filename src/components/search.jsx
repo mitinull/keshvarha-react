@@ -1,4 +1,3 @@
-// import icon from '../images/sprite.svg'
 import { useContext, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import CountriesContext from "../contexts/countries";
