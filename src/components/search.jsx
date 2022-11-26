@@ -5,15 +5,17 @@ import CountriesContext from "../contexts/countries";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
-  const { setCountries, countries, allCountries } = useContext(CountriesContext);
+  const { setCountries, allCountries, setPage } = useContext(CountriesContext);
   const changeInputHandler = (e) => {
     setSearchValue(e.target.value);
-    const filtered = allCountries.filter((country) => country.name.common == e.target.value)
+    setPage(1);
+    const filtered = e.target.value
+      ? allCountries.filter((country) => country.name.common == e.target.value)
+      : allCountries;
 
-    setCountries( filtered
-    );
+    setCountries(filtered);
     console.log(e.target.value);
-  }
+  };
   return (
     <form action="#" className="search">
       <input
