@@ -39,7 +39,7 @@ const Cards = () => {
   }
 
   return (
-    <main className="cards">
+    <main className="cards" key={region+searchValue+page}>
       {isLoading ? (
         <BsGlobe2 className="spinner" />
       ) : (

@@ -1,15 +1,16 @@
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ card }) => {
+  // const [a, sa] = useState('')
   // useEffect(() => {
-  //   console.log(card);
-  // }, []);
+  //   sa('card--animate')
+  // });
   const image = card.flags.svg;
   return (
     <li className="cards__item">
-      <Link to={card.cca3} className="card">
+      <Link to={card.cca3} className="card card--animate">
         <div className="card__flag-box">
           <img className="card__flag" src={image} alt="Country flag" />
         </div>
